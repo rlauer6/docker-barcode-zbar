@@ -1,0 +1,73 @@
+#1 [internal] load .dockerignore
+#1 sha256:7a37560057720990a42cad3dfa4e40784d9daffcd6851cd51245cc27509669ed
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 sha256:1ce276c4638ede7ccb73a2c1376b3330711ecca437b8a8929ba72275052b2972
+#2 transferring dockerfile: 714B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/amazonlinux:2
+#3 sha256:fc74cb88fb41757238b7c8f807a8a54ab36c03b02384db53ca30ebf4e8a96d10
+#3 DONE 0.0s
+
+#4 [ 1/12] FROM docker.io/library/amazonlinux:2
+#4 sha256:2863c77d38f73508050fd402b2322719e62fec5356750211ba380da8628264e4
+#4 DONE 0.0s
+
+#7 [internal] load build context
+#7 sha256:254a7e1f71298e12fce0c36a645a5e6b8e264cd640f5916362952f80b8985d79
+#7 transferring context: 3.18kB done
+#7 DONE 0.0s
+
+#10 [ 6/12] COPY qr-decode.pl .
+#10 sha256:0322919f0498156680c153000ef94e0573c1e0849467461f9d84e6612e075a7d
+#10 CACHED
+
+#15 [11/12] RUN cpanm -v Barcode::ZBar
+#15 sha256:1eef06dde3792412a636c68d1838f334121c8501133c9b610c087f0721472ad1
+#15 CACHED
+
+#12 [ 8/12] RUN mkdir git;     cd git;     git clone https://github.com/mchehab/zbar
+#12 sha256:b2b8132587f81b10d53cb93222391cc9c8be400fccce3237cdf8e0022dd493c7
+#12 CACHED
+
+#5 [ 2/12] RUN amazon-linux-extras install epel -y
+#5 sha256:f7742c86ae98a9ec10231076143803433196a2e39987dbb4ada6f1bcd0862a7f
+#5 CACHED
+
+#11 [ 7/12] RUN  yum install -y $(cat package.lst)
+#11 sha256:c55d6f93aa9d87717780c36666355b164f14cb2dbc5b5de4ea59f260a72ef0e3
+#11 CACHED
+
+#14 [10/12] RUN curl -L https://cpanmin.us | perl - App::cpanminus
+#14 sha256:074024cc2732ca8a19ef22dfba2c7f040ecc4a35c237e4b83970e71aac43d7b1
+#14 CACHED
+
+#13 [ 9/12] RUN cd git/zbar;     autoreconf -vfi;     ./configure --with-imagemagick;     make && make install;     make
+#13 sha256:7d3e8c1634727f833b918f3a7ce2775e2d9fbf29045480bfec80dfc16be3aa1a
+#13 CACHED
+
+#6 [ 3/12] RUN amazon-linux-extras install testing -y
+#6 sha256:f82ffb18d150e0be56b6916fa992610bf74409b2a4b710b9c32d43cd5de81e0d
+#6 CACHED
+
+#9 [ 5/12] COPY 2020-01-japh.png .
+#9 sha256:99d53b3158dcd3b59b00946d37acdf444536f1654ec4e8d682ad02cd07b8f032
+#9 CACHED
+
+#8 [ 4/12] COPY package.lst .
+#8 sha256:6946dc21c779d01ee777b130b5bc9f41dff906dad24a1016f9fee22aa3bef083
+#8 CACHED
+
+#16 [12/12] RUN perl -wc qr-decode.pl && perl qr-decode.pl 2020-01-japh.png
+#16 sha256:b22e1925d741ae701b5cc51afa2a7f6ab185bb3975c8fe3e9efe1bb08898f43a
+#16 CACHED
+
+#17 exporting to image
+#17 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#17 exporting layers done
+#17 writing image sha256:3c347b49a681206e895f8f58c3ff005437360baa8cd6c0cbb1fe4c60a9908d73 done
+#17 naming to docker.io/library/qrcode-reader done
+#17 DONE 0.0s

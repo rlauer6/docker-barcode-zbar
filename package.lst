@@ -1,0 +1,16 @@
+perl-core 
+less 
+tree 
+gcc 
+zbar-devel 
+make 
+autoconf 
+automake 
+libtool 
+ImageMagick-devel 
+ImageMagick-perl 
+tar 
+gzip 
+git 
+gettext-devel 
+libpng-devel
