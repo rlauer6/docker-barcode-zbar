@@ -1,0 +1,18 @@
+Thu May 11 05:14:07 2023  Rob Lauer  <rlauer6@comcast.net>
+
+	[BigBang]:
+	* 2020-01-japh.png: new
+	* Dockerfile: new
+	* LICENSE.txt: new
+	* Makefile: new
+	* package.lst: new
+	* qr-decode.pl: new
+	* README.md: new
+
+	[caching]:
+	* .gitignore: new
+	* ChangeLog: new
+	* Makefile
+	- bust cache for last step
+	- clean
+	* Dockerfile: likewise

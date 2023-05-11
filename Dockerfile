@@ -26,4 +26,6 @@ RUN curl -L https://cpanmin.us | perl - App::cpanminus
 RUN cpanm -v Barcode::ZBar
 
 # test
+ARG CACHEBUST=1
+RUN echo "$CACHEBUST"
 RUN perl -wc qr-decode.pl && perl qr-decode.pl 2020-01-japh.png
